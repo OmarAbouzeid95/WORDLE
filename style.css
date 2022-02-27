@@ -1,0 +1,67 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap");
+body {
+  width: 400px;
+  margin: auto;
+}
+
+h1 {
+  text-align: center;
+  font-family: "Montserrat", sans-serif;
+}
+
+.container {
+  margin: 2em auto 1em auto;
+}
+
+.container .cell {
+  border: 1px grey solid;
+  width: 75px;
+  height: 75px;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 1.5em;
+}
+
+.correct {
+  background-color: #229954;
+  border: 1.5px solid black;
+}
+
+.semi-correct {
+  background-color: #d4ac0d;
+  border: 1.5px solid black;
+}
+
+.incorrect {
+  background-color: #abb2b9;
+  border: 1.5px solid black;
+}
+
+.hide {
+  display: none;
+}
+
+.result {
+  text-align: center;
+  margin: auto;
+}
+
+.new_game {
+  background-color: #229954;
+  color: white;
+  padding: 1em 2em;
+  border-radius: 0.5em;
+  cursor: pointer;
+  font-family: "Montserrat", sans-serif;
+}
+
+.rulesBtn {
+  padding: 0 4px;
+  border-radius: 3em;
+  border: 0.75px black solid;
+  background-color: transparent;
+  float: right;
+  margin-top: -2em;
+  cursor: pointer;
+}
+/*# sourceMappingURL=style.css.map */
