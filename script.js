@@ -33,7 +33,7 @@ function displayRules(){
 
 rulesBtn.addEventListener("click", displayRules);
 
-readTextFile("/words.txt");
+readTextFile("words.txt");
 let wordsArray = text.split("\n");
 
 function pickRandom(){
