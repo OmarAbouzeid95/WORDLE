@@ -3,39 +3,107 @@
 body {
   width: 400px;
   margin: auto;
+  font-family: "Montserrat", sans-serif;
 }
 
 h1 {
   text-align: center;
-  font-family: "Montserrat", sans-serif;
 }
 
 .container {
   margin: 2em auto 1em auto;
+  width: 250px;
 
   .cell {
     border: 1px grey solid;
-    width: 75px;
-    height: 75px;
+    width: 50px;
+    height: 50px;
+    font-weight: 700;
     text-align: center;
     text-transform: uppercase;
-    font-size: 1.5em;
+    font-size: 1em;
+  }
+}
+
+.keyboard {
+  width: 400px;
+  height: 150px;
+  margin: 1em auto 1em auto;
+
+  table {
+    margin: auto;
+    width: 400px;
+
+    .row1 {
+      margin: auto;
+      width: 350px;
+      display: flex;
+      justify-content: space-evenly;
+      margin-bottom: 0.5em;
+    }
+
+    .row2 {
+      margin: auto;
+      width: 300px;
+      display: flex;
+      justify-content: space-evenly;
+      margin-bottom: 0.5em;
+    }
+
+    .row3 {
+      margin: auto;
+      width: 350px;
+      display: flex;
+      justify-content: space-evenly;
+      margin-bottom: 0.5em;
+    }
+
+    .letter {
+      width: 25px;
+      height: 25px;
+      font-weight: 700;
+      border: 1px black solid;
+      text-align: center;
+      text-transform: uppercase;
+      border-radius: 0.3em;
+    }
+    .letter:hover {
+      cursor: pointer;
+    }
+
+    .enter,
+    .backspace {
+      width: 55px;
+      height: 30px;
+      font-weight: 700;
+      border: 1px black solid;
+      text-align: center;
+      text-transform: uppercase;
+      border-radius: 0.3em;
+    }
+    .enter,
+    .backspace:hover {
+      cursor: pointer;
+    }
   }
 }
 
 .correct {
   background-color: #229954;
   border: 1.5px solid black;
+  color: #edf9f2;
 }
 
 .semi-correct {
-  background-color: #d4ac0d;
+  background-color: #e19d01;
   border: 1.5px solid black;
+  color: #edf9f2;
 }
 
 .incorrect {
-  background-color: #abb2b9;
+  background-color: #30473a;
   border: 1.5px solid black;
+  color: #edf9f2;
 }
 
 .hide {

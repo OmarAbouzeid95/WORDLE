@@ -1,12 +1,15 @@
 
 // initializing vars
 let i = 1;
-let word1 = []; let word2 = []; let word3 = []; let word4 = []; let word5 = [];
+let word1 = []; let word2 = [];let word3 = [];let word4 = [];let word5 = []; let word6 = [];
 let currentWord = "one";
 let text;
 const newGameBtn = document.querySelector(".new_game");
 const gameMsg = document.querySelector(".game_msg");
 const rulesBtn = document.querySelector(".rulesBtn");
+const letters = document.querySelectorAll(".letter");
+const enterBtn = document.querySelector(".enter");
+const backspaceBtn = document.querySelector(".backspace");
 
 function readTextFile(file){
     var rawFile = new XMLHttpRequest();
@@ -22,6 +25,21 @@ function readTextFile(file){
     rawFile.send(null);
 }
 
+function gameWon() {
+    swal({  
+        title: "YOU WON!",  
+        text: "You guessed it right, the word was " + correctWord,        
+        button: {
+            text: "Play again?",
+            value: "playAgain"
+        }      
+      }).then((value) => {
+          if (value == "playAgain") {
+              location.reload();
+          }
+      });
+};
+
 function displayRules(){
 
     swal({
@@ -33,7 +51,7 @@ function displayRules(){
 
 rulesBtn.addEventListener("click", displayRules);
 
-readTextFile("words.txt");
+readTextFile("/words.txt");
 let wordsArray = text.split("\n");
 
 function pickRandom(){
@@ -77,7 +95,7 @@ function display(word){
                 let selectedCell = `cell${i+1}`;
                 const currentCell = document.querySelector("[data-name=" + selectedCell + "]");
                 currentCell.innerText = word[i];
-                currentCell.style.border = "1.5px black solid";
+                currentCell.style.border = "1.1px black solid";
             }
             break;
         
@@ -86,7 +104,7 @@ function display(word){
                 let selectedCell = `cell${i+6}`;
                 const currentCell = document.querySelector("[data-name=" + selectedCell + "]");
                 currentCell.innerText = word[i];
-                currentCell.style.border = "1.5px black solid";
+                currentCell.style.border = "1.1px black solid";
             }
             break;
 
@@ -95,7 +113,7 @@ function display(word){
             let selectedCell = `cell${i+11}`;
             const currentCell = document.querySelector("[data-name=" + selectedCell + "]");
             currentCell.innerText = word[i];
-            currentCell.style.border = "1.5px black solid";
+            currentCell.style.border = "1.1px black solid";
         }
         break;
 
@@ -104,7 +122,7 @@ function display(word){
                 let selectedCell = `cell${i+16}`;
                 const currentCell = document.querySelector("[data-name=" + selectedCell + "]");
                 currentCell.innerText = word[i];
-                currentCell.style.border = "1.5px black solid";
+                currentCell.style.border = "1.1px black solid";
             }
             break;
 
@@ -113,7 +131,16 @@ function display(word){
             let selectedCell = `cell${i+21}`;
             const currentCell = document.querySelector("[data-name=" + selectedCell + "]");
             currentCell.innerText = word[i];
-            currentCell.style.border = "1.5px black solid";
+            currentCell.style.border = "1.1px black solid";
+            }
+        break;
+
+        case "six":
+                for(let i =0; i<word.length; i++){
+            let selectedCell = `cell${i+26}`;
+            const currentCell = document.querySelector("[data-name=" + selectedCell + "]");
+            currentCell.innerText = word[i];
+            currentCell.style.border = "1.1px black solid";
             }
         break;
     }
@@ -165,172 +192,242 @@ function clear(){
                 currentCell.style.border = "";
             }
             break;
+
+        case "six":
+            for(let i = 26; i<31; i++){
+                let selectedCell = `cell${i}`;
+                const currentCell = document.querySelector("[data-name=" + selectedCell + "]");
+                currentCell.innerText = "";
+                currentCell.style.border = "";
+            }
+            break;
     }
 }
+
+// function that writes the letters into the words
+function writeLtrs (letter) {
+    if(word1.length < 5 && currentWord === "one"){
+        word1.push(letter);
+        display(word1);
+        i++;
+        
+    }else if(word2.length < 5 && currentWord === "two"){
+        
+        word2.push(letter);
+        display(word2);
+        i++;
+        
+    }else if(word3.length < 5 && currentWord === "three"){
+        
+        word3.push(letter);
+        display(word3);
+        i++;
+}else if(word4.length < 5 && currentWord === "four"){
+    
+    word4.push(letter);
+    display(word4);
+    i++;
+}else if(word5.length < 5 && currentWord === "five"){
+    
+    word5.push(letter);
+    display(word5);
+    i++;
+}else if(word6.length < 5 && currentWord === "six"){
+    
+    word6.push(letter);
+    display(word6);
+    i++;
+}
+};
+
+//function for removing letters from words
+
+function clearLtrs() {
+
+    switch(currentWord){
+        case "one":
+            if(word1.length != 0){
+                word1.pop();
+                clear();
+                display(word1);
+                i--;
+                break;
+            }
+            
+
+        case "two":
+            if(word2.length != 0){
+                word2.pop();
+                clear();
+                display(word2);
+                i--;
+                break;
+            }
+
+        case "three":
+            if(word3.length != 0){
+                word3.pop();
+                clear();
+                display(word3);
+                i--;
+                break;
+            }
+                
+        case "four":
+            if(word4.length != 0){
+                word4.pop();
+                clear();
+                display(word4);
+                i--;
+                break;
+            }
+
+        case "five":
+            if(word5.length != 0){
+                word5.pop();
+                clear();
+                display(word5);
+                i--;
+                break;
+            }
+
+        case "six":
+            if(word6.length != 0){
+                word6.pop();
+                clear();
+                display(word6);
+                i--;
+                break;
+            }
+                
+            };
+}
+
+//function that runs when user hits enter
+
+function enterLtrs(){
+
+    switch(i){
+        case (6):
+            // call check function
+            if (checkWord(word1) === false){
+                //call function not in the word list
+                notInList();
+                break;
+            } if(currentWord === "one") {
+            compare(word1, correctWord);
+            if(rightGuess(word1, correctWord) != false){
+                currentWord = "";
+                gameMsg.innerText = "YOU WON!";
+                newGameBtn.classList.remove("hide");
+            }
+        }
+            currentWord = "two"
+            break;
+        case (11):
+            // call check fn
+            if (checkWord(word2) === false){
+                //call function not in the word list
+                notInList();
+                break;
+            } if(currentWord === "two"){
+            compare(word2, correctWord);
+            if(rightGuess(word2, correctWord) != false){
+                gameMsg.innerText = "YOU WON!";
+                newGameBtn.classList.remove("hide");
+            }
+        }
+            currentWord = "three"
+            break;
+        case (16):
+            // call check fn
+            if (checkWord(word3) === false){
+                //call function not in the word list
+                notInList();
+                break;
+            } if(currentWord === "three"){
+            compare(word3, correctWord);
+            if(rightGuess(word3, correctWord) != false){
+                gameMsg.innerText = "YOU WON!";
+                newGameBtn.classList.remove("hide");
+            }
+        }
+            currentWord = "four"
+            break;
+        case (21):
+            // call check fn
+            if (checkWord(word4) === false){
+                //call function not in the word list
+                notInList();
+                break;
+            } if(currentWord === "four"){
+            compare(word4, correctWord);
+            if(rightGuess(word4, correctWord) != false){
+                gameMsg.innerText = "YOU WON!";
+                newGameBtn.classList.remove("hide");
+            }
+        }
+            currentWord = "five"
+            break;
+        case (26): 
+            // call check fn
+            if (checkWord(word5) === false){
+                //call function not in the word list
+                notInList();
+                break;
+            } if(currentWord === "five"){
+            compare(word5, correctWord);
+            if(rightGuess(word5, correctWord) != false){
+                currentWord = "";
+                gameMsg.innerText = "YOU WON!";
+                newGameBtn.classList.remove("hide");
+            }
+        }
+            currentWord = "six"
+            break;
+
+        case (31): 
+        // call check fn
+        if (checkWord(word6) === false){
+            //call function not in the word list
+            notInList();
+            break;
+        } if(currentWord === "six"){
+        compare(word6, correctWord);
+        if(rightGuess(word6, correctWord) != false){
+            currentWord = "";
+            gameMsg.innerText = "YOU WON!";
+            newGameBtn.classList.remove("hide");
+        }else {
+            gameMsg.innerText = `YOU LOST! - ${correctWord}`;
+            newGameBtn.classList.remove("hide");
+        }
+    }
+        break;
+    }
+};
 
 function write() {
     
     document.addEventListener("keydown", (e) => {
        // let selectedCell = `cell${i}`;
         if(e.key === "a" || e.key === "b" || e.key === "c" || e.key === "d" || e.key === "e" || e.key === "f" || e.key === "g" || e.key === "h" || e.key === "i" || e.key === "j" || e.key === "k" || e.key === "l" || e.key === "m" || e.key === "n" || e.key === "o" || e.key === "p" || e.key === "q" || e.key === "r" || e.key === "s" || e.key === "t" || e.key === "u" || e.key === "v" || e.key === "w" || e.key === "x" || e.key ==="y" || e.key === "z"){
-            if(word1.length < 5 && currentWord === "one"){
-                word1.push(e.key);
-                display(word1);
-                i++;
-                
-            }else if(word2.length < 5 && currentWord === "two"){
-                
-                word2.push(e.key);
-                display(word2);
-                i++;
-                
-            }else if(word3.length < 5 && currentWord === "three"){
-                
-                word3.push(e.key);
-                display(word3);
-                i++;
-        }else if(word4.length < 5 && currentWord === "four"){
-            
-            word4.push(e.key);
-            display(word4);
-            i++;
-        }else if(word5.length < 5 && currentWord === "five"){
-            
-            word5.push(e.key);
-            display(word5);
-            i++;
-        }
-    }else if(e.key === "Backspace"){
-    
-        switch(currentWord){
-            case "one":
-                if(word1.length != 0){
-                    word1.pop();
-                    clear();
-                    display(word1);
-                    i--;
-                    break;
-                }
-                
-
-            case "two":
-                if(word2.length != 0){
-                    word2.pop();
-                    clear();
-                    display(word2);
-                    i--;
-                    break;
-                }
-
-            case "three":
-                if(word3.length != 0){
-                    word3.pop();
-                    clear();
-                    display(word3);
-                    i--;
-                    break;
-                }
-                    
-            case "four":
-                if(word4.length != 0){
-                    word4.pop();
-                    clear();
-                    display(word4);
-                    i--;
-                    break;
-                }
-
-            case "five":
-                if(word5.length != 0){
-                    word5.pop();
-                    clear();
-                    display(word5);
-                    i--;
-                    break;
-                }
-                    
-                }
+            writeLtrs(e.key);
+}else if(e.key === "Backspace"){
+            clearLtrs();
         }else if(e.key === "Enter"){
-
-            switch(i){
-                case (6):
-                    // call check function
-                    if (checkWord(word1) === false){
-                        //call function not in the word list
-                        notInList();
-                        break;
-                    }
-                    compare(word1, correctWord);
-                    if(rightGuess(word1, correctWord) != false){
-                        currentWord = "";
-                        gameMsg.innerText = "YOU WON!";
-                        newGameBtn.classList.remove("hide");
-                    }
-                    currentWord = "two"
-                    break;
-                case (11):
-                    // call check fn
-                    if (checkWord(word2) === false){
-                        //call function not in the word list
-                        notInList();
-                        break;
-                    }
-                    compare(word2, correctWord);
-                    if(rightGuess(word2, correctWord) != false){
-                        gameMsg.innerText = "YOU WON!";
-                        newGameBtn.classList.remove("hide");
-                    }
-                    currentWord = "three"
-                    break;
-                case (16):
-                    // call check fn
-                    if (checkWord(word3) === false){
-                        //call function not in the word list
-                        notInList();
-                        break;
-                    }
-                    compare(word3, correctWord);
-                    if(rightGuess(word3, correctWord) != false){
-                        gameMsg.innerText = "YOU WON!";
-                        newGameBtn.classList.remove("hide");
-                    }
-                    currentWord = "four"
-                    break;
-                case (21):
-                    // call check fn
-                    if (checkWord(word4) === false){
-                        //call function not in the word list
-                        notInList();
-                        break;
-                    }
-                    compare(word4, correctWord);
-                    if(rightGuess(word4, correctWord) != false){
-                        gameMsg.innerText = "YOU WON!";
-                        newGameBtn.classList.remove("hide");
-                    }
-                    currentWord = "five"
-                    break;
-                case (26): 
-                    // call check fn
-                    if (checkWord(word5) === false){
-                        //call function not in the word list
-                        notInList();
-                        break;
-                    }
-                    compare(word5, correctWord);
-                    if(rightGuess(word5, correctWord) != false){
-                        currentWord = "";
-                        gameMsg.innerText = "YOU WON!";
-                        newGameBtn.classList.remove("hide");
-                    }else {
-                        gameMsg.innerText = `YOU LOST! - ${correctWord}`;
-                        newGameBtn.classList.remove("hide");
-                    }
-                    break;
-            }
-
+            enterLtrs();
         }
+        });
+
+    letters.forEach(letter => {
+        letter.addEventListener("click", (e) => {
+            writeLtrs((e.path[0].innerText).toLowerCase());
         })
+    });
+
+    enterBtn.addEventListener("click", enterLtrs);
+    backspaceBtn.addEventListener("click", clearLtrs);
         
 };
 
@@ -344,115 +441,143 @@ function rightGuess(guessed, trueValue){
     }
 }
 
+// function colorise keyboard
+
+function addColor (colorClass, letter) {
+    const clickedLtr = document.querySelector("[data-name=" + letter + "]");
+    if (colorClass === "green"){
+        if (clickedLtr.classList.contains("semi-correct") == true){
+            clickedLtr.classList.replace("semi-correct", "correct");
+        }else {
+            clickedLtr.classList.add("correct");
+        }
+        
+    }else if(colorClass === "orange") {
+            if(clickedLtr.classList.contains("correct") != true)
+            clickedLtr.classList.add("semi-correct");
+        
+    }else {
+        clickedLtr.classList.add("incorrect");
+    }
+}
+
 function compare(guessed, trueValue){
     
     const correct = trueValue.split("");
     switch(currentWord){
         case "one":
-            
             for (let i = 0; i<5; i++){
                     let selectedCell = `cell${i+1}`;
                     const currentCell = document.querySelector("[data-name=" + selectedCell + "]");
                     if (correct.includes(guessed[i])){
                         if(guessed[i] === correct[i]){
-                            // letters match
                             currentCell.classList.add("correct");
-                            
-                        }else {
+                            addColor("green", guessed[i])
+                        }else{
                             // correct letter but in wrong pos.
                             currentCell.classList.add("semi-correct");
+                            addColor("orange" ,guessed[i]);
                         }
                     }else {
                         currentCell.classList.add("incorrect");
+                        addColor("grey" ,guessed[i]);
                     }
             }
                 break;
         case "two":
-            
             for (let i = 0; i<5; i++){
-                    let selectedCell = `cell${i+6}`;
-                    const currentCell = document.querySelector("[data-name=" + selectedCell + "]");
-                    if (correct.includes(guessed[i])){
-                        if(guessed[i] === correct[i]){
-                            // letters match
-                            currentCell.classList.add("correct");
-                            
-                        }else {
-                            // correct letter but in wrong pos.
-                            currentCell.classList.add("semi-correct");
-                        }
-                    }else {
-                        currentCell.classList.add("incorrect");
+                let selectedCell = `cell${i+6}`;
+                const currentCell = document.querySelector("[data-name=" + selectedCell + "]");
+                if (correct.includes(guessed[i])){
+                    if(guessed[i] === correct[i]){
+                        currentCell.classList.add("correct");
+                        addColor("green", guessed[i])
+                    }else{
+                        // correct letter but in wrong pos.
+                        currentCell.classList.add("semi-correct");
+                        addColor("orange" ,guessed[i]);
                     }
-                
-            }
-                break;
-
+                }else {
+                    currentCell.classList.add("incorrect");
+                    addColor("grey" ,guessed[i]);
+                }
+        }
+            break;
         case "three":
-            
             for (let i = 0; i<5; i++){
-                
-                    let selectedCell = `cell${i+11}`;
-                    const currentCell = document.querySelector("[data-name=" + selectedCell + "]");
-                    if (correct.includes(guessed[i])){
-                        if(guessed[i] === correct[i]){
-                            // letters match
-                            currentCell.classList.add("correct");
-                            
-                        }else {
-                            // correct letter but in wrong pos.
-                            currentCell.classList.add("semi-correct");
-                        }
-                    }else {
-                        currentCell.classList.add("incorrect");
+                let selectedCell = `cell${i+11}`;
+                const currentCell = document.querySelector("[data-name=" + selectedCell + "]");
+                if (correct.includes(guessed[i])){
+                    if(guessed[i] === correct[i]){
+                        currentCell.classList.add("correct");
+                        addColor("green", guessed[i])
+                    }else{
+                        // correct letter but in wrong pos.
+                        currentCell.classList.add("semi-correct");
+                        addColor("orange" ,guessed[i]);
                     }
-                
-            }
-                break;
-
+                }else {
+                    currentCell.classList.add("incorrect");
+                    addColor("grey" ,guessed[i]);
+                }
+        }
+            break;
         case "four":
-            
             for (let i = 0; i<5; i++){
-                
-                    let selectedCell = `cell${i+16}`;
-                    const currentCell = document.querySelector("[data-name=" + selectedCell + "]");
-                    if (correct.includes(guessed[i])){
-                        if(guessed[i] === correct[i]){
-                            // letters match
-                            currentCell.classList.add("correct");
-                            
-                        }else {
-                            // correct letter but in wrong pos.
-                            currentCell.classList.add("semi-correct");
-                        }
-                    }else {
-                        currentCell.classList.add("incorrect");
+                let selectedCell = `cell${i+16}`;
+                const currentCell = document.querySelector("[data-name=" + selectedCell + "]");
+                if (correct.includes(guessed[i])){
+                    if(guessed[i] === correct[i]){
+                        currentCell.classList.add("correct");
+                        addColor("green", guessed[i])
+                    }else{
+                        // correct letter but in wrong pos.
+                        currentCell.classList.add("semi-correct");
+                        addColor("orange" ,guessed[i]);
                     }
-                
-            }
-                break;
-
+                }else {
+                    currentCell.classList.add("incorrect");
+                    addColor("grey" ,guessed[i]);
+                }
+        }
+            break;
         case "five":
-            
             for (let i = 0; i<5; i++){
-                
-                    let selectedCell = `cell${i+21}`;
-                    const currentCell = document.querySelector("[data-name=" + selectedCell + "]");
-                    if (correct.includes(guessed[i])){
-                        if(guessed[i] === correct[i]){
-                            // letters match
-                            currentCell.classList.add("correct");
-                            
-                        }else {
-                            // correct letter but in wrong pos.
-                            currentCell.classList.add("semi-correct");
-                        }
-                    }else {
-                        currentCell.classList.add("incorrect");
+                let selectedCell = `cell${i+21}`;
+                const currentCell = document.querySelector("[data-name=" + selectedCell + "]");
+                if (correct.includes(guessed[i])){
+                    if(guessed[i] === correct[i]){
+                        currentCell.classList.add("correct");
+                        addColor("green", guessed[i])
+                    }else{
+                        // correct letter but in wrong pos.
+                        currentCell.classList.add("semi-correct");
+                        addColor("orange" ,guessed[i]);
                     }
-                
+                }else {
+                    currentCell.classList.add("incorrect");
+                    addColor("grey" ,guessed[i]);
+                }
+        }
+            break;
+        case "six":for (let i = 0; i<5; i++){
+            let selectedCell = `cell${i+26}`;
+            const currentCell = document.querySelector("[data-name=" + selectedCell + "]");
+            if (correct.includes(guessed[i])){
+                if(guessed[i] === correct[i]){
+                    currentCell.classList.add("correct");
+                    addColor("green", guessed[i])
+                }else{
+                    // correct letter but in wrong pos.
+                    currentCell.classList.add("semi-correct");
+                    addColor("orange" ,guessed[i]);
+                }
+            }else {
+                currentCell.classList.add("incorrect");
+                addColor("grey" ,guessed[i]);
             }
-                break;
+    }
+        break;
 
 
                 
