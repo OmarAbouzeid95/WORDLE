@@ -1,6 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap");
 body {
-  width: 400px;
   margin: auto;
   font-family: "Montserrat", sans-serif;
 }
@@ -124,8 +123,47 @@ h1 {
 }
 
 .result {
+  width: 250px;
+  height: 95px;
   text-align: center;
   margin: auto;
+  padding-bottom: 30px;
+  border: 2px solid #30473a;
+  background-color: #f9f7f4;
+  border-radius: 5px;
+  position: absolute;
+  top: 75%;
+  left: 0;
+  right: 0;
+  margin: auto;
+  z-index: 1;
+  color: #30473a;
+  -webkit-animation-duration: 0.4s;
+          animation-duration: 0.4s;
+  -webkit-animation-name: popup;
+          animation-name: popup;
+}
+
+@-webkit-keyframes popup {
+  0% {
+    -webkit-transform: scale(0.3);
+            transform: scale(0.3);
+  }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+
+@keyframes popup {
+  0% {
+    -webkit-transform: scale(0.3);
+            transform: scale(0.3);
+  }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
 }
 
 .new_game {
@@ -143,7 +181,55 @@ h1 {
   border: 0.75px black solid;
   background-color: transparent;
   float: right;
-  margin-top: -2em;
+  margin: -2em auto;
+  padding-right: -2em;
   cursor: pointer;
+}
+
+#stats {
+  border: 1px solid #229954;
+  border-radius: 5px;
+  background-color: #229954;
+  cursor: pointer;
+  font-family: "Montserrat", sans-serif;
+  text-transform: uppercase;
+  color: white;
+  width: 80%;
+  height: 20px;
+  margin-left: 3em;
+}
+
+#stats-data {
+  width: 400px;
+  position: absolute;
+  z-index: 1;
+  border: 2px solid #30473a;
+  background-color: #f9f7f4;
+  text-transform: uppercase;
+  text-align: center;
+  left: 0;
+  right: 0;
+  margin: auto;
+  top: 17%;
+  -webkit-animation: 0.4s;
+          animation: 0.4s;
+  -webkit-animation-name: popup;
+          animation-name: popup;
+}
+
+#stats-data h4 {
+  font-size: 0.8em;
+}
+
+#stats-data #games-played,
+#stats-data #wins {
+  font-size: 1.3em;
+  margin: 0;
+}
+
+#stats-data #close-btn {
+  position: absolute;
+  right: 0;
+  background-color: transparent;
 }
 /*# sourceMappingURL=style.css.map */

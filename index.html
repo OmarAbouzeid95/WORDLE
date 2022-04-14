@@ -12,9 +12,10 @@
 <body>
 
     <h1>WORD GUESS</h1>
-    <button class="rulesBtn">?</button>
+    
 
     <div class="container">
+        <button class="rulesBtn">?</button>
         <table>
             <tr>
                 <td class= "cell" data-name="cell1"></td>
@@ -108,12 +109,32 @@
             <td data-name="backspace" class="backspace">⌫</td>
         </tr>
     </table>
+    <button id="stats">statistics</button>
     </div>
 
-    <div class="result">
+    <div class="result hide">
         <p class="game_msg"></p>
         <button  class="new_game hide" onClick="window.location.reload();">New game</button>
     </div>
+
+    <div id="stats-data" class="hide">
+        <button id="close-btn">X</button>
+        <h2>statistics</h2>
+        <h4>games played</h4>
+        <h4 id="games-played"></h6>
+        <h4>wins</h4>
+        <h4 id="wins"></h6>
+
+        <h4 id="word-one"></h4>
+        <h4 id="word-two"></h4>
+        <h4 id="word-three"></h4>
+        <h4 id="word-four"></h4>
+        <h4 id="word-five"></h4>
+        <h4 id="word-six"></h4>
+        <h4 id="losses"></h4>
+    </div>
+
+    
     
 </body>
 </html>
