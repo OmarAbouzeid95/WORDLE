@@ -1,4 +1,4 @@
-import wordsArray from "./words.js";
+import wordsArray from "/words.js";
 
 // initializing vars
 let i = 1;
@@ -583,11 +583,16 @@ function write() {
     letters.forEach(letter => {
         letter.addEventListener("click", (e) => {
             writeLtrs((e.path[0].innerText).toLowerCase());
-        })
+        });
+        letter.addEventListener("touchstart", (e) => {
+            writeLtrs((e.path[0].innerText).toLowerCase());
+        });
     });
 
     enterBtn.addEventListener("click", enterLtrs);
+    enterBtn.addEventListener("touchstart", enterLtrs);
     backspaceBtn.addEventListener("click", clearLtrs);
+    backspaceBtn.addEventListener("touchstart", clearLtrs);
         
 };
 

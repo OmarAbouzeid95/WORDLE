@@ -87,6 +87,15 @@ h1 {
   }
 }
 
+@media (max-width: 500px) {
+  .keyboard {
+    width: 350px;
+    table {
+      width: 350px;
+    }
+  }
+}
+
 .correct {
   background-color: #229954;
   border: 1.5px solid black;
@@ -198,6 +207,12 @@ h1 {
     position: absolute;
     right: 0;
     background-color: transparent;
+  }
+}
+
+@media (max-width: 500px) {
+  #stats-data {
+    width: 300px;
   }
 }
 
