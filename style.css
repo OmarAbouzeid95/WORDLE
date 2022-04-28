@@ -232,4 +232,8 @@ h1 {
   right: 0;
   background-color: transparent;
 }
+
+.shadow-background {
+  opacity: 0.5;
+}
 /*# sourceMappingURL=style.css.map */

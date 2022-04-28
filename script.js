@@ -1,9 +1,9 @@
+import wordsArray from "/words.js";
 
 // initializing vars
 let i = 1;
 let word1 = []; let word2 = [];let word3 = [];let word4 = [];let word5 = []; let word6 = [];
 let currentWord = "one";
-let text;
 let gameWon = false;
 let gamesPlayed, firstWordWin, secondWordWin, thirdWordWin, fourthWordWin, fifthWordWin, sixthWordWin, totalWins, winPercentage, lose; 
 const newGameBtn = document.querySelector(".new_game");
@@ -26,19 +26,6 @@ const wordFive = document.getElementById("word-five");
 const wordSix = document.getElementById("word-six");
 const closeBtn = document.getElementById("close-btn");
 
-function readTextFile(file){
-    var rawFile = new XMLHttpRequest();
-    rawFile.open("GET", file, true);
-    rawFile.onreadystatechange = function(){
-        if (rawFile.readyState === 4){
-            if (rawFile.status === 200 || rawFile.status == 0) {
-                var allText = rawFile.responseText;
-                text = allText;
-            }
-        }
-    }
-    rawFile.send(null);
-}
 
 function displayRules(){
 
@@ -51,16 +38,14 @@ function displayRules(){
 
 rulesBtn.addEventListener("click", displayRules);
 
-readTextFile("/words.txt");
-let wordsArray = text.split("\n");
 
-function pickRandom(){
+function pickRandom(wordsArray){
 
     let randomNo = Math.floor((Math.random() * 5757) + 1);
     return wordsArray[randomNo];
 };
 
-let correctWord = pickRandom();
+let correctWord = pickRandom(wordsArray);
 console.log(correctWord);
 
 
