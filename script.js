@@ -1,4 +1,4 @@
-import wordsArray from "/words.js";
+import wordsArray from "./words.js";
 
 // initializing vars
 let i = 1;
