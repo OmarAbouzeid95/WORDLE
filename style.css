@@ -72,7 +72,7 @@ h1 {
 
 .keyboard table .letter {
   width: 25px;
-  height: 25px;
+  height: 30px;
   font-weight: 700;
   border: 1px black solid;
   text-align: center;
@@ -86,13 +86,14 @@ h1 {
 
 .keyboard table .enter,
 .keyboard table .backspace {
-  width: 55px;
+  width: 57px;
   height: 30px;
   font-weight: 700;
   border: 1px black solid;
   text-align: center;
   text-transform: uppercase;
   border-radius: 0.3em;
+  background-color: transparent;
 }
 
 .keyboard table .enter,
@@ -250,5 +251,9 @@ h1 {
 
 .shadow-background {
   opacity: 0.5;
+}
+
+.white-bkgrnd {
+  background-color: white;
 }
 /*# sourceMappingURL=style.css.map */

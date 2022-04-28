@@ -188,7 +188,7 @@ function displayStats() {
     statsContainer.classList.remove("hide");
     winPercentage = Math.floor((totalWins/gamesPlayed)*100);
     numberOfGames.textContent = gamesPlayed;
-    numberOfWins.textContent = `${totalWins}  (${winPercentage}%)`;
+    numberOfWins.textContent = `${totalWins}  (${gamesPlayed > 0 ? winPercentage : 0}%)`;
     numberOfLosses.textContent = `LOSSES: ${lose}`;
     wordOne.textContent = `FIRST GUESS: ${firstWordWin}`;
     wordTwo.textContent = `SECOND GUESS: ${secondWordWin}`;
@@ -584,15 +584,10 @@ function write() {
         letter.addEventListener("click", (e) => {
             writeLtrs((e.path[0].innerText).toLowerCase());
         });
-        letter.addEventListener("touchstart", (e) => {
-            writeLtrs((e.path[0].innerText).toLowerCase());
-        });
     });
 
     enterBtn.addEventListener("click", enterLtrs);
-    enterBtn.addEventListener("touchstart", enterLtrs);
     backspaceBtn.addEventListener("click", clearLtrs);
-    backspaceBtn.addEventListener("touchstart", clearLtrs);
         
 };
 
@@ -616,16 +611,16 @@ function addColor (colorClass, letter) {
         }else if(clickedLtr.classList.contains("incorrect") == true) {
             clickedLtr.classList.replace("incorrect", "correct");
         }else {
-            clickedLtr.classList.add("correct");
+            clickedLtr.classList.replace("white-bkgrnd" , "correct");
         }
         
     }else if(colorClass === "orange") {
             if(clickedLtr.classList.contains("correct") != true)
-            clickedLtr.classList.add("semi-correct");
+            clickedLtr.classList.replace("white-bkgrnd", "semi-correct");
         
     }else {
         if(clickedLtr.classList.contains("correct") != true)
-        clickedLtr.classList.add("incorrect");
+        clickedLtr.classList.replace("white-bkgrnd", "incorrect");
     }
 }
 
