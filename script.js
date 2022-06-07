@@ -585,9 +585,17 @@ function write() {
             writeLtrs((e.path[0].innerText).toLowerCase());
         });
     });
+    
+    letters.forEach(letter => {
+        letter.addEventListener("touchstart", (e) => {
+            writeLtrs((e.path[0].innerText).toLowerCase());
+        });
+    });
 
     enterBtn.addEventListener("click", enterLtrs);
+    enterBtn.addEventListener("touchstart", enterLtrs);
     backspaceBtn.addEventListener("click", clearLtrs);
+    backspaceBtn.addEventListener("touchstart", clearLtrs);
         
 };
 
