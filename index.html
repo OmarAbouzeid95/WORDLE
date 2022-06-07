@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WORDLE</title>
     <link rel="stylesheet" href="style.css">
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <!-- <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script> -->
     <script type = "module" src= "script.js" defer></script>
 </head>
 <body>
@@ -15,7 +15,7 @@
     
 
     <div class="container">
-        <button class="rulesBtn">?</button>
+            <button class="rulesBtn">?</button>
         <table>
             <tr>
                 <td class= "cell" data-name="cell1"></td>
@@ -73,40 +73,40 @@
     <div class="keyboard">
         <table>
         <tr class="row1">
-            <td><button data-name="q" class="letter white-bkgrnd">q</button></td>
-            <td><button data-name="w" class="letter white-bkgrnd">w</button></td>
-            <td><button data-name="e" class="letter white-bkgrnd">e</button></td>
-            <td><button data-name="r" class="letter white-bkgrnd">r</button></td>
-            <td><button data-name="t" class="letter white-bkgrnd">t</button></td>
-            <td><button data-name="y" class="letter white-bkgrnd">y</button></td>
-            <td><button data-name="u" class="letter white-bkgrnd">u</button></td>
-            <td><button data-name="i" class="letter white-bkgrnd">i</button></td>
-            <td><button data-name="o" class="letter white-bkgrnd">o</button></td>
-            <td><button data-name="p" class="letter white-bkgrnd">p</button></td>
+            <td data-name="q" class="letter white-bkgrnd">q</td>
+            <td data-name="w" class="letter white-bkgrnd">w</td>
+            <td data-name="e" class="letter white-bkgrnd">e</td>
+            <td data-name="r" class="letter white-bkgrnd">r</td>
+            <td data-name="t" class="letter white-bkgrnd">t</td>
+            <td data-name="y" class="letter white-bkgrnd">y</td>
+            <td data-name="u" class="letter white-bkgrnd">u</td>
+            <td data-name="i" class="letter white-bkgrnd">i</td>
+            <td data-name="o" class="letter white-bkgrnd">o</td>
+            <td data-name="p" class="letter white-bkgrnd">p</td>
         </tr>
 
         <tr class="row2">
-            <td><button data-name="a" class="letter white-bkgrnd">a</button></td>
-            <td><button data-name="s" class="letter white-bkgrnd">s</button></td>
-            <td><button data-name="d" class="letter white-bkgrnd">d</button></td>
-            <td><button data-name="f" class="letter white-bkgrnd">f</button></td>
-            <td><button data-name="g" class="letter white-bkgrnd">g</button></td>
-            <td><button data-name="h" class="letter white-bkgrnd">h</button></td>
-            <td><button data-name="j" class="letter white-bkgrnd">j</button></td>
-            <td><button data-name="k" class="letter white-bkgrnd">k</button></td>
-            <td><button data-name="l" class="letter white-bkgrnd">l</button></td>
+            <td class="letter white-bkgrnd" data-name="a">a</td>
+            <td data-name="s" class="letter white-bkgrnd">s</td>
+            <td data-name="d" class="letter white-bkgrnd">d</td>
+            <td data-name="f" class="letter white-bkgrnd">f</td>
+            <td data-name="g" class="letter white-bkgrnd">g</td>
+            <td data-name="h" class="letter white-bkgrnd">h</td>
+            <td data-name="j" class="letter white-bkgrnd">j</td>
+            <td data-name="k" class="letter white-bkgrnd">k</td>
+            <td data-name="l" class="letter white-bkgrnd">l</td>
         </tr>
 
         <tr class="row3">
-            <td data-name="enter"><button class="enter">enter</button></td>
-            <td><button data-name="z" class="letter white-bkgrnd">z</button></td>
-            <td><button data-name="x" class="letter white-bkgrnd">x</button></td>
-            <td><button data-name="c" class="letter white-bkgrnd">c</button></td>
-            <td><button data-name="v" class="letter white-bkgrnd">v</button></td>
-            <td><button data-name="b" class="letter white-bkgrnd">b</button></td>
-            <td><button data-name="n" class="letter white-bkgrnd">n</button></td>
-            <td><button data-name="m" class="letter white-bkgrnd">m</button></td>
-            <td data-name="backspace"><button class="backspace">⌫</button></td>
+            <td data-name="enter" class="enter">enter</td>
+            <td data-name="z" class="letter white-bkgrnd">z</td>
+            <td data-name="x" class="letter white-bkgrnd">x</td>
+            <td data-name="c" class="letter white-bkgrnd">c</td>
+            <td data-name="v" class="letter white-bkgrnd">v</td>
+            <td data-name="b" class="letter white-bkgrnd">b</td>
+            <td data-name="n" class="letter white-bkgrnd">n</td>
+            <td data-name="m" class="letter white-bkgrnd">m</td>
+            <td data-name="backspace"class="backspace">⌫</td>
         </tr>
     </table>
     <button id="stats">statistics</button>
@@ -118,7 +118,7 @@
     </div>
 
     <div id="stats-data" class="hide">
-        <button id="close-btn">X</button>
+        <button class="close-btn">X</button>
         <h2>statistics</h2>
         <h4>games played</h4>
         <h4 id="games-played"></h6>
@@ -132,6 +132,17 @@
         <h4 id="word-five"></h4>
         <h4 id="word-six"></h4>
         <h4 id="losses"></h4>
+    </div>
+
+    <div id="rules" class= "hide">
+        <button class="close-btn">X</button>
+        <div id="rules-image">
+            <img src="./rules.png" alt="rules">
+        </div>
+        <p>Try guessing the five letter word</p>
+        <p> Letters marked in GREEN and in the correct position.</p>
+        <p>Letters marked in ORANGE are correct but in the wrong position.</p>
+        <p>Letters marked in GREY are incorrect.</p>
     </div>
 
     

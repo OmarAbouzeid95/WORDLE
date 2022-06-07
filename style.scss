@@ -7,10 +7,12 @@ body {
 
 h1 {
   text-align: center;
+  margin-bottom: 0;
 }
 
 .container {
-  margin: 2em auto 1em auto;
+  margin: 0.75em auto 1em auto;
+  margin: 1.5em auto 1em auto;
   width: 250px;
 
   .cell {
@@ -58,13 +60,16 @@ h1 {
     }
 
     .letter {
-      width: 25px;
-      height: 30px;
+      width: 20px;
+      height: 20px;
       font-weight: 700;
-      border: 1px black solid;
+      font-size: 0.8rem;
+      border: 1px grey solid;
       text-align: center;
       text-transform: uppercase;
       border-radius: 0.3em;
+      margin: 0;
+      padding-top: 5px;
     }
     .letter:hover {
       cursor: pointer;
@@ -73,8 +78,10 @@ h1 {
     .enter,
     .backspace {
       width: 57px;
-      height: 30px;
+      height: 25px;
+      padding-top: 7px;
       font-weight: 700;
+      font-size: 0.8rem;
       border: 1px black solid;
       text-align: center;
       text-transform: uppercase;
@@ -158,7 +165,7 @@ h1 {
 
 .rulesBtn {
   padding: 0 4px;
-  border-radius: 3em;
+  border-radius: 50%;
   border: 0.75px black solid;
   background-color: transparent;
   float: right;
@@ -203,12 +210,44 @@ h1 {
     font-size: 1.3em;
     margin: 0;
   }
+}
 
-  #close-btn {
-    position: absolute;
-    right: 0;
-    background-color: transparent;
+#rules {
+  width: 400px;
+  position: absolute;
+  z-index: 1;
+  border: 2px solid #30473a;
+  background-color: #f9f7f4;
+  left: 0;
+  right: 0;
+  margin: auto;
+  top: 17%;
+  animation: 0.4s;
+  animation-name: popup;
+
+  p {
+    margin: 0.3em;
+    padding-left: 1em;
   }
+}
+.close-btn {
+  position: absolute;
+  right: 0;
+  background-color: transparent;
+}
+
+#rules-image {
+  width: 60%;
+  margin: 1.5em auto;
+
+  img {
+    max-width: 100%;
+  }
+}
+
+.dark-mode {
+  color: white;
+  background-color: #363636;
 }
 
 @media (max-width: 500px) {
