@@ -588,14 +588,25 @@ function write() {
     
     letters.forEach(letter => {
         letter.addEventListener("touchstart", (e) => {
+            e.stopPropagation();
+            e.preventDefault();
             writeLtrs((e.path[0].innerText).toLowerCase());
         });
     });
 
     enterBtn.addEventListener("click", enterLtrs);
-    enterBtn.addEventListener("touchstart", enterLtrs);
+    enterBtn.addEventListener("touchstart", (e) => {
+        e.stopPropagation();
+        e.preventDefault();
+        enterLtrs
+        
+    });
     backspaceBtn.addEventListener("click", clearLtrs);
-    backspaceBtn.addEventListener("touchstart", clearLtrs);
+    backspaceBtn.addEventListener("touchstart", (e) => {
+        e.stopPropagation();
+        e.preventDefault();    
+        clearLtrs
+    });
         
 };
 
