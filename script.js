@@ -515,12 +515,6 @@ function write() {
     });
 
     letters.forEach(letter => {
-        letter.addEventListener("click", (e) => {
-            writeLtrs((e.path[0].innerText).toLowerCase());
-        });
-    });
-
-    letters.forEach(letter => {
         letter.addEventListener("touchstart", (e) => {
             e.stopPropagation();
             e.preventDefault();
@@ -528,17 +522,17 @@ function write() {
         });
     });
 
-    enterBtn.addEventListener("click", enterLtrs);
+    
     enterBtn.addEventListener("touchstart", (e) => {
         e.stopPropagation();
         e.preventDefault();
-        enterLtrs
+        enterLtrs();
     });
-    backspaceBtn.addEventListener("click", clearLtrs);
+    
     backspaceBtn.addEventListener("touchstart", (e) => {
         e.stopPropagation();
         e.preventDefault();
-        clearLtrs
+        clearLtrs();
     });
         
 };
