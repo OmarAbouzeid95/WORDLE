@@ -89,14 +89,14 @@ header {
 
 .keyboard table .letter {
   width: 25px;
-  height: 30px;
+  height: 25px;
   font-weight: 700;
   font-size: 1rem;
   border: 1px grey solid;
   text-align: center;
   text-transform: uppercase;
   border-radius: 0.3em;
-  margin: 0.15em;
+  margin: 0 0.15em;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -114,8 +114,8 @@ header {
 
 .keyboard table .enter,
 .keyboard table .backspace {
-  width: 50px;
-  height: 35px;
+  width: 40px;
+  height: 25px;
   font-weight: 700;
   font-size: 0.8rem;
   border: 1px black solid;
@@ -140,7 +140,7 @@ header {
 }
 
 .keyboard table .enter {
-  width: 60px;
+  width: 50px;
 }
 
 @media (max-width: 500px) {
@@ -244,8 +244,10 @@ header {
   text-transform: uppercase;
   color: white;
   width: 80%;
-  height: 20px;
+  height: 25px;
   margin-left: 3em;
+  font-size: 1em;
+  font-weight: bold;
 }
 
 #stats-container {
