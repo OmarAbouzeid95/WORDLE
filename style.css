@@ -364,10 +364,6 @@ header {
     width: 30px;
     height: 35px;
   }
-  .container .cell {
-    width: 60px;
-    height: 60px;
-  }
 }
 
 .shadow-background {
