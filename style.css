@@ -331,6 +331,16 @@ header {
   #stats-container {
     width: 300px;
   }
+  #stats-container .stats-line h4 {
+    font-size: 0.6em;
+  }
+  #stats-container h4 {
+    font-size: 0.9em;
+  }
+}
+
+#rules {
+  width: 300px;
 }
 
 .shadow-background {

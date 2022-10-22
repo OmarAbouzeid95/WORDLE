@@ -284,9 +284,21 @@ header {
 @media (max-width: 500px) {
   #stats-container {
     width: 300px;
+    .stats-line {
+      h4 {
+        font-size: 0.6em;
+      }
+    }
+
+    h4 {
+      font-size: 0.9em;
+    }
   }
 }
 
+#rules {
+  width: 300px;
+}
 .shadow-background {
   opacity: 0.5;
 }
