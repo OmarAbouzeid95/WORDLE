@@ -89,15 +89,23 @@ header {
 
 .keyboard table .letter {
   width: 25px;
-  height: 25px;
+  height: 30px;
   font-weight: 700;
-  font-size: 0.8rem;
+  font-size: 1rem;
   border: 1px grey solid;
   text-align: center;
   text-transform: uppercase;
   border-radius: 0.3em;
-  margin: 0;
-  padding-top: 5px;
+  margin: 0.15em;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .keyboard table .letter:hover {
@@ -106,9 +114,8 @@ header {
 
 .keyboard table .enter,
 .keyboard table .backspace {
-  width: 57px;
-  height: 25px;
-  padding-top: 7px;
+  width: 50px;
+  height: 35px;
   font-weight: 700;
   font-size: 0.8rem;
   border: 1px black solid;
@@ -116,11 +123,24 @@ header {
   text-transform: uppercase;
   border-radius: 0.3em;
   background-color: transparent;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .keyboard table .enter,
 .keyboard table .backspace:hover {
   cursor: pointer;
+}
+
+.keyboard table .enter {
+  width: 60px;
 }
 
 @media (max-width: 500px) {
