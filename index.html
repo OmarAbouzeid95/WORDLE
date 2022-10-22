@@ -6,16 +6,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WORDLE</title>
     <link rel="stylesheet" href="style.css">
-    <!-- <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script> -->
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     
 </head>
 <body>
 
-    <h1>WORD GUESS</h1>
+    <header>
+        <h1>WORD GUESS</h1>
+        <img class= "rules-btn" src="help-icon.png" alt="help icon">
+    </header>
+    
     
 
     <div class="container">
-            <button class="rulesBtn">?</button>
+            <!-- <button class="rulesBtn">?</button> -->
+            
         <table>
             <tr>
                 <td class= "cell" data-name="cell1"></td>
@@ -106,7 +111,7 @@
             <td data-name="b" class="letter white-bkgrnd">b</td>
             <td data-name="n" class="letter white-bkgrnd">n</td>
             <td data-name="m" class="letter white-bkgrnd">m</td>
-            <td data-name="backspace"class="backspace">⌫</td>
+            <td data-name="backspace"class="backspace"><img style="width:20px;"id="bkspc-icon" src="bkspaceIcon.png" alt="backspace icon"></td>
         </tr>
     </table>
     <button id="stats">statistics</button>
@@ -117,25 +122,15 @@
         <button  class="new_game hide" onClick="window.location.reload();">New game</button>
     </div>
 
-    <div id="stats-data" class="hide">
-        <button class="close-btn">X</button>
-        <h2>statistics</h2>
-        <h4>games played</h4>
-        <h4 id="games-played"></h6>
-        <h4>wins</h4>
-        <h4 id="wins"></h6>
+    <div id="stats-container" class="hide">
+        <img class= "close-btn" src="close-icon.png" alt="close icon">
+        <div class="stats-data">
 
-        <h4 id="word-one"></h4>
-        <h4 id="word-two"></h4>
-        <h4 id="word-three"></h4>
-        <h4 id="word-four"></h4>
-        <h4 id="word-five"></h4>
-        <h4 id="word-six"></h4>
-        <h4 id="losses"></h4>
+        </div>
     </div>
 
     <div id="rules" class= "hide">
-        <button class="close-btn">X</button>
+        <img class= "close-btn" src="close-icon.png" alt="close icon">
         <div id="rules-image">
             <img src="./rules.png" alt="rules">
         </div>

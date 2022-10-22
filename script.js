@@ -8,14 +8,15 @@ let currentWord = "one";
 let gamesPlayed, firstWordWin, secondWordWin, thirdWordWin, fourthWordWin, fifthWordWin, sixthWordWin, totalWins, winPercentage, lose; 
 const newGameBtn = document.querySelector(".new_game");
 const gameMsg = document.querySelector(".game_msg");
-const rulesBtn = document.querySelector(".rulesBtn");
+const rulesBtn = document.querySelector(".rules-btn");
 const letters = document.querySelectorAll(".letter");
 const cells = document.querySelectorAll(".cell");
 const enterBtn = document.querySelector(".enter");
 const backspaceBtn = document.querySelector(".backspace");
 const resultContainer = document.querySelector(".result");
 const statsBtn = document.getElementById("stats");
-const statsContainer = document.getElementById("stats-data");
+const statsData = document.querySelector(".stats-data");
+const statsContainer = document.getElementById("stats-container");
 const numberOfGames = document.getElementById("games-played");
 const numberOfWins = document.getElementById("wins");
 const numberOfLosses = document.getElementById("losses");
@@ -29,6 +30,7 @@ const closeBtns = document.querySelectorAll(".close-btn");
 const whiteBgBtn = document.getElementById("light-btn");
 const darkBgBtn = document.getElementById("dark-btn");
 let currentBg = "light";
+
 
 
 function displayRules(){
@@ -188,18 +190,41 @@ function displayStats() {
 
 
     getStatsFromLocalStorage();
+    statsData.innerHTML = ""
     statsContainer.classList.remove("hide");
     winPercentage = Math.floor((totalWins/gamesPlayed)*100);
-    numberOfGames.textContent = gamesPlayed;
-    numberOfWins.textContent = `${totalWins}  (${gamesPlayed > 0 ? winPercentage : 0}%)`;
-    numberOfLosses.textContent = `LOSSES: ${lose}`;
-    wordOne.textContent = `FIRST GUESS: ${firstWordWin}`;
-    wordTwo.textContent = `SECOND GUESS: ${secondWordWin}`;
-    wordThree.textContent = `THIRD GUESS: ${thirdWordWin}`;
-    wordFour.textContent = `FOURTH GUESS: ${fourthWordWin}`;
-    wordFive.textContent = `FIFTH GUESS: ${fifthWordWin}`;
-    wordSix.textContent = `SIXTH GUESS: ${sixthWordWin}`;
-
+    const div = document.createElement("div")
+    div.innerHTML = `
+                    <h2>statistics</h2>
+                    <h4>games played: ${gamesPlayed}</h4>  
+                    <h4>wins: ${totalWins} (${gamesPlayed > 0 ? winPercentage : 0}%)</h4>
+                    <h4>losses: ${lose}</h4>
+                    <div class="stats-line">
+                        <h4>first word: ${firstWordWin}</h4>    
+                        <span class="stats-bar" style="width:${(firstWordWin/totalWins)*100}%"></span>    
+                    </div>
+                    <div class="stats-line">
+                        <h4>second word: ${secondWordWin}</h4>    
+                        <span class="stats-bar" style="width:${(secondWordWin/totalWins)*100}%"></span>    
+                    </div>
+                    <div class="stats-line">
+                        <h4>third word: ${thirdWordWin}</h4>    
+                        <span class="stats-bar" style="width:${(thirdWordWin/totalWins)*100}%"></span>    
+                    </div>
+                    <div class="stats-line">
+                        <h4>fourth word: ${fourthWordWin}</h4>    
+                        <span class="stats-bar" style="width:${(fourthWordWin/totalWins)*100}%"></span>    
+                    </div>
+                    <div class="stats-line">
+                        <h4>fifth word: ${fifthWordWin}</h4>    
+                        <span class="stats-bar" style="width:${(fifthWordWin/totalWins)*100}%"></span>    
+                    </div>
+                    <div class="stats-line">
+                        <h4>sixth word: ${sixthWordWin}</h4>    
+                        <span class="stats-bar" style="width:${(sixthWordWin/totalWins)*100}%"></span>    
+                    </div>
+                    `
+    statsData.append(div);
 }
 
 /* function that displays the current targeted cell
@@ -514,22 +539,23 @@ function write() {
         }
     });
 
+
     letters.forEach(letter => {
-        letter.addEventListener("touchstart", (e) => {
+        letter.addEventListener("click", (e) => {
             e.stopPropagation();
             e.preventDefault();
-            writeLtrs((e.path[0].innerText).toLowerCase());
+            console.log(e);
+            writeLtrs((e.target.innerText).toLowerCase());  
         });
     });
 
-    
-    enterBtn.addEventListener("touchstart", (e) => {
+    enterBtn.addEventListener("click", (e) => {
         e.stopPropagation();
         e.preventDefault();
         enterLtrs();
     });
     
-    backspaceBtn.addEventListener("touchstart", (e) => {
+    backspaceBtn.addEventListener("click", (e) => {
         e.stopPropagation();
         e.preventDefault();
         clearLtrs();

@@ -9,6 +9,21 @@ h1 {
   margin-bottom: 0;
 }
 
+header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 250px;
+  margin: 0 auto;
+  position: relative;
+}
+
 .container {
   margin: 0.75em auto 1em auto;
   margin: 1.5em auto 1em auto;
@@ -187,19 +202,16 @@ h1 {
   background-color: #229954;
   color: white;
   padding: 1em 2em;
-  border-radius: 0.5em;
+  border-radius: 0.3em;
   cursor: pointer;
   font-family: "Montserrat", sans-serif;
 }
 
-.rulesBtn {
-  padding: 0 4px;
-  border-radius: 50%;
-  border: 0.75px black solid;
-  background-color: transparent;
-  float: right;
-  margin: -2em auto;
-  padding-right: -2em;
+.rules-btn {
+  width: 25px;
+  position: absolute;
+  top: 50%;
+  right: -10%;
   cursor: pointer;
 }
 
@@ -216,30 +228,58 @@ h1 {
   margin-left: 3em;
 }
 
-#stats-data {
+#stats-container {
   width: 400px;
   position: absolute;
   z-index: 1;
   border: 2px solid #30473a;
+  border-radius: 0.35em;
   background-color: #f9f7f4;
   text-transform: uppercase;
   text-align: center;
   left: 0;
   right: 0;
   margin: auto;
-  top: 17%;
+  top: 10%;
   -webkit-animation: 0.4s;
           animation: 0.4s;
   -webkit-animation-name: popup;
           animation-name: popup;
 }
 
-#stats-data h4 {
+#stats-container .stats-line {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: auto 2em;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#stats-container .stats-line h4 {
+  width: 40%;
+  margin-right: 2.5em;
+  text-align: left;
   font-size: 0.8em;
 }
 
-#stats-data #games-played,
-#stats-data #wins {
+#stats-container .stats-line .stats-bar {
+  border: 1px solid #229954;
+  border-radius: 0.1em;
+  background-color: #229954;
+  height: 15px;
+}
+
+#stats-container h4 {
+  font-size: 1.1em;
+  margin-right: 2.5em;
+  text-align: center;
+  width: 100%;
+}
+
+#stats-container #games-played,
+#stats-container #wins {
   font-size: 1.3em;
   margin: 0;
 }
@@ -267,8 +307,10 @@ h1 {
 
 .close-btn {
   position: absolute;
-  right: 0;
-  background-color: transparent;
+  right: 0.3em;
+  top: 0.3em;
+  width: 5%;
+  cursor: pointer;
 }
 
 #rules-image {
@@ -286,7 +328,7 @@ h1 {
 }
 
 @media (max-width: 500px) {
-  #stats-data {
+  #stats-container {
     width: 300px;
   }
 }
