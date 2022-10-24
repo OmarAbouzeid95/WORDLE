@@ -143,6 +143,15 @@ header {
   width: 50px;
 }
 
+.keyboard .stats-btn {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
 @media (max-width: 500px) {
   .keyboard {
     width: 350px;
@@ -245,7 +254,6 @@ header {
   color: white;
   width: 80%;
   height: 25px;
-  margin-left: 3em;
   font-size: 1em;
   font-weight: bold;
 }
@@ -362,17 +370,23 @@ header {
   #rules {
     width: 300px;
   }
-  .keyboard table .letter {
-    width: 30px;
-    height: 35px;
+  .keyboard {
+    width: 400px;
   }
-}
-
-.shadow-background {
-  opacity: 0.5;
-}
-
-.white-bkgrnd {
-  background-color: white;
+  .keyboard table .letter {
+    width: 32px;
+    height: 45px;
+  }
+  .keyboard table .enter,
+  .keyboard table .backspace {
+    height: 45px;
+  }
+  .keyboard .row1,
+  .keyboard .row3 {
+    width: 400px;
+  }
+  .keyboard .row2 {
+    width: 350px;
+  }
 }
 /*# sourceMappingURL=style.css.map */

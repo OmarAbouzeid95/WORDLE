@@ -109,6 +109,10 @@ header {
       width: 50px;
     }
   }
+  .stats-btn {
+    display: flex;
+    justify-content: center;
+  }
 }
 
 @media (max-width: 500px) {
@@ -197,7 +201,7 @@ header {
   color: white;
   width: 80%;
   height: 25px;
-  margin-left: 3em;
+  // margin-left: 3em;
   font-size: 1em;
   font-weight: bold;
 }
@@ -307,19 +311,23 @@ header {
     width: 300px;
   }
   .keyboard {
+    width: 400px;
     table {
       .letter {
-        width: 30px;
-        height: 35px;
+        width: 32px;
+        height: 45px;
+      }
+      .enter,
+      .backspace {
+        height: 45px;
       }
     }
+    .row1,
+    .row3 {
+      width: 400px;
+    }
+    .row2 {
+      width: 350px;
+    }
   }
-}
-
-.shadow-background {
-  opacity: 0.5;
-}
-
-.white-bkgrnd {
-  background-color: white;
 }
