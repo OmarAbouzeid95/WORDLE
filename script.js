@@ -10,28 +10,13 @@ const newGameBtn = document.querySelector(".new_game");
 const gameMsg = document.querySelector(".game_msg");
 const rulesBtn = document.querySelector(".rules-btn");
 const letters = document.querySelectorAll(".letter");
-const cells = document.querySelectorAll(".cell");
 const enterBtn = document.querySelector(".enter");
 const backspaceBtn = document.querySelector(".backspace");
 const resultContainer = document.querySelector(".result");
 const statsBtn = document.getElementById("stats");
 const statsData = document.querySelector(".stats-data");
 const statsContainer = document.getElementById("stats-container");
-const numberOfGames = document.getElementById("games-played");
-const numberOfWins = document.getElementById("wins");
-const numberOfLosses = document.getElementById("losses");
-const wordOne = document.getElementById("word-one");
-const wordTwo = document.getElementById("word-two");
-const wordThree = document.getElementById("word-three");
-const wordFour = document.getElementById("word-four");
-const wordFive = document.getElementById("word-five");
-const wordSix = document.getElementById("word-six");
 const closeBtns = document.querySelectorAll(".close-btn");
-const whiteBgBtn = document.getElementById("light-btn");
-const darkBgBtn = document.getElementById("dark-btn");
-let currentBg = "light";
-
-
 
 function displayRules(){
 
@@ -438,7 +423,6 @@ function enterLtrs(){
                 notInList();
                 break;
             }
-            
             if (rightGuess(word2, correctWord, 6)){
                 endGame("win")
                 getStatsFromLocalStorage()
@@ -542,24 +526,13 @@ function write() {
 
     letters.forEach(letter => {
         letter.addEventListener("click", (e) => {
-            e.stopPropagation();
-            e.preventDefault();
-            console.log(e);
             writeLtrs((e.target.innerText).toLowerCase());  
         });
     });
 
-    enterBtn.addEventListener("click", (e) => {
-        e.stopPropagation();
-        e.preventDefault();
-        enterLtrs();
-    });
+    enterBtn.addEventListener("click", (e) => enterLtrs());
     
-    backspaceBtn.addEventListener("click", (e) => {
-        e.stopPropagation();
-        e.preventDefault();
-        clearLtrs();
-    });
+    backspaceBtn.addEventListener("click", (e) => clearLtrs());
         
 };
 
