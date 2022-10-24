@@ -205,6 +205,11 @@ header {
           animation-name: popup;
 }
 
+.result .game_msg {
+  font-weight: bold;
+  font-size: 1.1em;
+}
+
 @-webkit-keyframes popup {
   0% {
     -webkit-transform: scale(0.3);
@@ -230,7 +235,10 @@ header {
 .new_game {
   background-color: #229954;
   color: white;
+  font-size: 1.1em;
+  font-weight: bold;
   padding: 1em 2em;
+  border: 0.5px solid;
   border-radius: 0.3em;
   cursor: pointer;
   font-family: "Montserrat", sans-serif;
@@ -387,6 +395,10 @@ header {
   }
   .keyboard .row2 {
     width: 350px;
+  }
+  .result {
+    width: 300px;
+    height: 120px;
   }
 }
 /*# sourceMappingURL=style.css.map */
