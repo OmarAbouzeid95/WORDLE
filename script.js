@@ -5,7 +5,8 @@ const lettersArray = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l"
 let i = 1;
 let word1 = []; let word2 = [];let word3 = [];let word4 = [];let word5 = []; let word6 = [];
 let currentWord = "one";
-let gamesPlayed, firstWordWin, secondWordWin, thirdWordWin, fourthWordWin, fifthWordWin, sixthWordWin, totalWins, winPercentage, lose; 
+let gamesPlayed, firstWordWin, secondWordWin, thirdWordWin, fourthWordWin, fifthWordWin, sixthWordWin, totalWins, winPercentage, lose;
+let word1Submit, word2Submit, word3Submit, word4Submit, word5Submit = false  
 const newGameBtn = document.querySelector(".new_game");
 const gameMsg = document.querySelector(".game_msg");
 const rulesBtn = document.querySelector(".rules-btn");
@@ -394,95 +395,108 @@ function endGame(status) {
 }
 
 
-
 //function that runs when user hits enter
 function enterLtrs(){
     
     switch(i){
-        case (6):
 
-            if (!checkWord(word1)){
-                notInList();
-                break;
+        case (6):
+            if(!word1Submit){
+                if (!checkWord(word1)){
+                    notInList();
+                    break;
+                }
+                if (rightGuess(word1, correctWord, 1)){
+                    endGame("win") 
+                    getStatsFromLocalStorage()
+                    updatesStats("win", 1)
+                }else {
+                    compare(word1, correctWord);
+                    currentWord = "two"
+                    word1Submit = true
+                } 
             }
-            if (rightGuess(word1, correctWord, 1)){
-                endGame("win") 
-                getStatsFromLocalStorage()
-                updatesStats("win", 1)
-            }else {
-                compare(word1, correctWord);
-                currentWord = "two"
-            } 
-            
             
             break;
 
         case (11):
-
-            if (!checkWord(word2)){
-                notInList();
-                break;
+            if(!word2Submit){
+                if (!checkWord(word2)){
+                    notInList();
+                    break;
+                }
+                if (rightGuess(word2, correctWord, 6)){
+                    endGame("win")
+                    getStatsFromLocalStorage()
+                    updatesStats("win", 2)
+                } else {
+                    compare(word2, correctWord);
+                    currentWord = "three"
+                    word2Submit = true
+                }
             }
-            if (rightGuess(word2, correctWord, 6)){
-                endGame("win")
-                getStatsFromLocalStorage()
-                updatesStats("win", 2)
-            } else {
-                compare(word2, correctWord);
-                currentWord = "three"
-            } 
+          
             break;
 
         case (16):
 
-            if (!checkWord(word3)){
-                notInList();
-                break;
-            }
-            
-            if (rightGuess(word3, correctWord, 11)){
-                endGame("win")  
-                getStatsFromLocalStorage()
-                updatesStats("win", 3)
-            }else {
-                compare(word3, correctWord);
-                currentWord = "four"
+            if(!word3Submit){
+                if (!checkWord(word3)){
+                    notInList();
+                    break;
+                }
+                
+                if (rightGuess(word3, correctWord, 11)){
+                    endGame("win")  
+                    getStatsFromLocalStorage()
+                    updatesStats("win", 3)
+                }else {
+                    compare(word3, correctWord);
+                    currentWord = "four"
+                    word3Submit = true
+                }
             }
             
             break;
 
         case (21):
 
-            if (!checkWord(word4)){
-                notInList();
-                break;
-            }
-            
-            if (rightGuess(word4, correctWord, 16)){
-                endGame("win") 
-                getStatsFromLocalStorage();
-                updatesStats("win", 4);
-            }else {
-                compare(word4, correctWord);
-                currentWord = "five"
+            if(!word4Submit){
+                if (!checkWord(word4)){
+                    notInList();
+                    break;
+                }
+                
+                if (rightGuess(word4, correctWord, 16)){
+                    endGame("win") 
+                    getStatsFromLocalStorage();
+                    updatesStats("win", 4);
+                }else {
+                    compare(word4, correctWord);
+                    currentWord = "five"
+                    word4Submit = true
+                }
             }
             
             break;
 
         case (26): 
 
-            if (!checkWord(word5)){
-                notInList();
-                break;
-            }
-            
-            if (rightGuess(word5, correctWord, 21)){
-                endGame("win") 
-                getStatsFromLocalStorage();
-                updatesStats("win", 5);
-            } else {
-                compare(word5, correctWord);
-                currentWord = "six"
+            if(!word5Submit){
+                if (!checkWord(word5)){
+                    notInList();
+                    break;
+                }
+                
+                if (rightGuess(word5, correctWord, 21)){
+                    endGame("win") 
+                    getStatsFromLocalStorage();
+                    updatesStats("win", 5);
+                } else {
+                    compare(word5, correctWord);
+                    currentWord = "six"
+                    word5Submit = true
+                }
             }
             
             break;
@@ -530,9 +544,9 @@ function write() {
         });
     });
 
-    enterBtn.addEventListener("click", (e) => enterLtrs());
+    enterBtn.addEventListener("click", () => enterLtrs());
     
-    backspaceBtn.addEventListener("click", (e) => clearLtrs());
+    backspaceBtn.addEventListener("click", () => clearLtrs());
         
 };
 
