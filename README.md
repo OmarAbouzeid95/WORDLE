@@ -1,2 +1,2 @@
 # OmarAbouzeid95.WORDLE
-Wordle game
+My version of the New York Times wordle game
