@@ -7,144 +7,147 @@
     <title>WORDLE</title>
     <link rel="stylesheet" href="style.css">
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-    
 </head>
 <body>
 
-    <header>
-        <h1>WORD GUESS</h1>
-        <img class= "rules-btn" src="help-icon.png" alt="help icon">
-    </header>
-    
-    
-
-    <div class="container">
-            <!-- <button class="rulesBtn">?</button> -->
+    <div class="whole-wrapper">
+        <div class="wrapper">
+            <header>
+                <h1>WORD GUESS</h1>
+                <img class= "rules-btn" src="help-icon.png" alt="help icon">
+            </header>
             
-        <table>
-            <tr>
-                <td class= "cell" data-name="cell1"></td>
-                <td class= "cell" data-name="cell2"></td>
-                <td class= "cell" data-name="cell3"></td>
-                <td class= "cell" data-name="cell4"></td>
-                <td class= "cell" data-name="cell5"></td>
+            <div class="container">
+                    <!-- <button class="rulesBtn">?</button> -->
+                    
+                <table>
+                    <tr>
+                        <td class= "cell" data-name="cell1"></td>
+                        <td class= "cell" data-name="cell2"></td>
+                        <td class= "cell" data-name="cell3"></td>
+                        <td class= "cell" data-name="cell4"></td>
+                        <td class= "cell" data-name="cell5"></td>
+                        
+                        
+                    </tr>
+                    <tr>
+                        <td class= "cell" data-name="cell6"></td>
+                        <td class= "cell" data-name="cell7"></td>
+                        <td class= "cell" data-name="cell8"></td>
+                        <td class= "cell" data-name="cell9"></td>
+                        <td class= "cell" data-name="cell10"></td>
+                        
+                    </tr>
+                    <tr>
+                        <td class= "cell" data-name="cell11"></td>
+                        <td class= "cell" data-name="cell12"></td>
+                        <td class= "cell" data-name="cell13"></td>
+                        <td class= "cell" data-name="cell14"></td>
+                        <td class= "cell" data-name="cell15"></td>
+                        
+                    </tr>
+                    <tr>
+                        <td class= "cell" data-name="cell16"></td>
+                        <td class= "cell" data-name="cell17"></td>
+                        <td class= "cell" data-name="cell18"></td>
+                        <td class= "cell" data-name="cell19"></td>
+                        <td class= "cell" data-name="cell20"></td>
+                        
+                    </tr>
+                    <tr>
+                        <td class= "cell" data-name="cell21"></td>
+                        <td class= "cell" data-name="cell22"></td>
+                        <td class= "cell" data-name="cell23"></td>
+                        <td class= "cell" data-name="cell24"></td>
+                        <td class= "cell" data-name="cell25"></td>
+                        
+                    </tr>
+                    <tr>
+                        <td class= "cell" data-name="cell26"></td>
+                        <td class= "cell" data-name="cell27"></td>
+                        <td class= "cell" data-name="cell28"></td>
+                        <td class= "cell" data-name="cell29"></td>
+                        <td class= "cell" data-name="cell30"></td>
+                        
+                    </tr>
+                </table>
                 
-                
-            </tr>
-            <tr>
-                <td class= "cell" data-name="cell6"></td>
-                <td class= "cell" data-name="cell7"></td>
-                <td class= "cell" data-name="cell8"></td>
-                <td class= "cell" data-name="cell9"></td>
-                <td class= "cell" data-name="cell10"></td>
-                
-            </tr>
-            <tr>
-                <td class= "cell" data-name="cell11"></td>
-                <td class= "cell" data-name="cell12"></td>
-                <td class= "cell" data-name="cell13"></td>
-                <td class= "cell" data-name="cell14"></td>
-                <td class= "cell" data-name="cell15"></td>
-                
-            </tr>
-            <tr>
-                <td class= "cell" data-name="cell16"></td>
-                <td class= "cell" data-name="cell17"></td>
-                <td class= "cell" data-name="cell18"></td>
-                <td class= "cell" data-name="cell19"></td>
-                <td class= "cell" data-name="cell20"></td>
-                
-            </tr>
-            <tr>
-                <td class= "cell" data-name="cell21"></td>
-                <td class= "cell" data-name="cell22"></td>
-                <td class= "cell" data-name="cell23"></td>
-                <td class= "cell" data-name="cell24"></td>
-                <td class= "cell" data-name="cell25"></td>
-                
-            </tr>
-            <tr>
-                <td class= "cell" data-name="cell26"></td>
-                <td class= "cell" data-name="cell27"></td>
-                <td class= "cell" data-name="cell28"></td>
-                <td class= "cell" data-name="cell29"></td>
-                <td class= "cell" data-name="cell30"></td>
-                
-            </tr>
-        </table>
+            </div>
         
-    </div>
-
-    <div class="keyboard">
-        <table>
-        <tr class="row1">
-            <td data-name="q" class="letter white-bkgrnd">q</td>
-            <td data-name="w" class="letter white-bkgrnd">w</td>
-            <td data-name="e" class="letter white-bkgrnd">e</td>
-            <td data-name="r" class="letter white-bkgrnd">r</td>
-            <td data-name="t" class="letter white-bkgrnd">t</td>
-            <td data-name="y" class="letter white-bkgrnd">y</td>
-            <td data-name="u" class="letter white-bkgrnd">u</td>
-            <td data-name="i" class="letter white-bkgrnd">i</td>
-            <td data-name="o" class="letter white-bkgrnd">o</td>
-            <td data-name="p" class="letter white-bkgrnd">p</td>
-        </tr>
-
-        <tr class="row2">
-            <td class="letter white-bkgrnd" data-name="a">a</td>
-            <td data-name="s" class="letter white-bkgrnd">s</td>
-            <td data-name="d" class="letter white-bkgrnd">d</td>
-            <td data-name="f" class="letter white-bkgrnd">f</td>
-            <td data-name="g" class="letter white-bkgrnd">g</td>
-            <td data-name="h" class="letter white-bkgrnd">h</td>
-            <td data-name="j" class="letter white-bkgrnd">j</td>
-            <td data-name="k" class="letter white-bkgrnd">k</td>
-            <td data-name="l" class="letter white-bkgrnd">l</td>
-        </tr>
-
-        <tr class="row3">
-            <td data-name="enter" class="enter">enter</td>
-            <td data-name="z" class="letter white-bkgrnd">z</td>
-            <td data-name="x" class="letter white-bkgrnd">x</td>
-            <td data-name="c" class="letter white-bkgrnd">c</td>
-            <td data-name="v" class="letter white-bkgrnd">v</td>
-            <td data-name="b" class="letter white-bkgrnd">b</td>
-            <td data-name="n" class="letter white-bkgrnd">n</td>
-            <td data-name="m" class="letter white-bkgrnd">m</td>
-            <td data-name="backspace"class="backspace"><img style="width:20px;"id="bkspc-icon" src="bkspaceIcon.png" alt="backspace icon"></td>
-        </tr>
-    </table>
-        <div class="stats-btn">
-            <button id="stats">statistics</button>
-        </div>
-    </div>
-
-    <div class="result hide">
-        <p class="game_msg"></p>
-        <button  class="new_game hide" onClick="window.location.reload();">New game</button>
-    </div>
-
-    <div id="stats-container" class="hide">
-        <img class= "close-btn" src="close-icon.png" alt="close icon">
-        <div class="stats-data">
-
-        </div>
-    </div>
-
-    <div id="rules" class= "hide">
-        <img class= "close-btn" src="close-icon.png" alt="close icon">
-        <div id="rules-image">
-            <img src="./rules.png" alt="rules">
-        </div>
-        <p><center><strong>Use keyboard or virtual keyboard</strong></center></p>
-        <p><center><u><strong>GAME RULES</strong></u></center></p>
-        <p>Try guessing the five letter word</p>
-        <p> Letters marked in GREEN are in the correct position.</p>
-        <p>Letters marked in ORANGE are correct but in the wrong position.</p>
-        <p>Letters marked in GREY are incorrect.</p>
-
+            <div class="keyboard">
+                <table>
+                <tr class="row1">
+                    <td data-name="q" class="letter white-bkgrnd">q</td>
+                    <td data-name="w" class="letter white-bkgrnd">w</td>
+                    <td data-name="e" class="letter white-bkgrnd">e</td>
+                    <td data-name="r" class="letter white-bkgrnd">r</td>
+                    <td data-name="t" class="letter white-bkgrnd">t</td>
+                    <td data-name="y" class="letter white-bkgrnd">y</td>
+                    <td data-name="u" class="letter white-bkgrnd">u</td>
+                    <td data-name="i" class="letter white-bkgrnd">i</td>
+                    <td data-name="o" class="letter white-bkgrnd">o</td>
+                    <td data-name="p" class="letter white-bkgrnd">p</td>
+                </tr>
         
+                <tr class="row2">
+                    <td class="letter white-bkgrnd" data-name="a">a</td>
+                    <td data-name="s" class="letter white-bkgrnd">s</td>
+                    <td data-name="d" class="letter white-bkgrnd">d</td>
+                    <td data-name="f" class="letter white-bkgrnd">f</td>
+                    <td data-name="g" class="letter white-bkgrnd">g</td>
+                    <td data-name="h" class="letter white-bkgrnd">h</td>
+                    <td data-name="j" class="letter white-bkgrnd">j</td>
+                    <td data-name="k" class="letter white-bkgrnd">k</td>
+                    <td data-name="l" class="letter white-bkgrnd">l</td>
+                </tr>
+        
+                <tr class="row3">
+                    <td data-name="enter" class="enter">enter</td>
+                    <td data-name="z" class="letter white-bkgrnd">z</td>
+                    <td data-name="x" class="letter white-bkgrnd">x</td>
+                    <td data-name="c" class="letter white-bkgrnd">c</td>
+                    <td data-name="v" class="letter white-bkgrnd">v</td>
+                    <td data-name="b" class="letter white-bkgrnd">b</td>
+                    <td data-name="n" class="letter white-bkgrnd">n</td>
+                    <td data-name="m" class="letter white-bkgrnd">m</td>
+                    <td data-name="backspace"class="backspace"><img style="width:20px;"id="bkspc-icon" src="bkspaceIcon.png" alt="backspace icon"></td>
+                </tr>
+            </table>
+                <div class="stats-btn">
+                    <button id="stats">statistics</button>
+                </div>
+            </div>
+            <div class="result hide">
+                <p class="game_msg"></p>
+                <button  class="new_game hide" onClick="window.location.reload();">New game</button>
+            </div>
+        
+            <div id="stats-container" class="hide">
+                <img class= "close-btn" src="close-icon.png" alt="close icon">
+                <div class="stats-data">
+        
+                </div>
+            </div>
+        
+            <div id="rules" class= "hide">
+                <img class= "close-btn" src="close-icon.png" alt="close icon">
+                <div id="rules-image">
+                    <img src="./rules.png" alt="rules">
+                </div>
+                <p><center><strong>Use keyboard or virtual keyboard</strong></center></p>
+                <p><center><u><strong>GAME RULES</strong></u></center></p>
+                <p>Try guessing the five letter word</p>
+                <p> Letters marked in GREEN are in the correct position.</p>
+                <p>Letters marked in ORANGE are correct but in the wrong position.</p>
+                <p>Letters marked in GREY are incorrect.</p>
+        
+                
+            </div>
+        </div>
     </div>
+ 
+
+    
 
     
     <script type = "module" src= "script.js"></script>

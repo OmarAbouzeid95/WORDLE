@@ -24,6 +24,23 @@ header {
   position: relative;
 }
 
+.whole-wrapper {
+  height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.wrapper {
+  position: relative;
+}
+
 .container {
   margin: 0.75em auto 1em auto;
   margin: 1.5em auto 1em auto;
@@ -88,8 +105,8 @@ header {
 }
 
 .keyboard table .letter {
-  width: 25px;
-  height: 25px;
+  width: 32px;
+  height: 45px;
   font-weight: 700;
   font-size: 1rem;
   border: 1px grey solid;
@@ -115,10 +132,10 @@ header {
 .keyboard table .enter,
 .keyboard table .backspace {
   width: 40px;
-  height: 25px;
+  height: 45px;
   font-weight: 700;
   font-size: 0.8rem;
-  border: 1px black solid;
+  border: 1.3px grey solid;
   text-align: center;
   text-transform: uppercase;
   border-radius: 0.3em;
@@ -278,7 +295,7 @@ header {
   left: 0;
   right: 0;
   margin: auto;
-  top: 10%;
+  top: 15%;
   -webkit-animation: 0.4s;
           animation: 0.4s;
   -webkit-animation-name: popup;
@@ -327,6 +344,7 @@ header {
   position: absolute;
   z-index: 1;
   border: 2px solid #30473a;
+  border-radius: 0.3em;
   background-color: #f9f7f4;
   left: 0;
   right: 0;
