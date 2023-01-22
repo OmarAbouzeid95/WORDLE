@@ -312,6 +312,10 @@ header {
 }
 
 @media (max-width: 500px) {
+  .whole-wrapper {
+    overflow-y: hidden;
+    height: 80vh;
+  }
   #stats-container {
     width: 300px;
     .stats-line {
