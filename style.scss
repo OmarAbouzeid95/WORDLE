@@ -20,7 +20,7 @@ header {
 }
 
 .whole-wrapper {
-  height: 80vh;
+  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -312,6 +312,9 @@ header {
 }
 
 @media (max-width: 500px) {
+  .whole-wrapper {
+    height: 80vh;
+  }
   #stats-container {
     width: 300px;
     .stats-line {
